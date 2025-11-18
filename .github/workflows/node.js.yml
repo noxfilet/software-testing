@@ -1,0 +1,41 @@
+# This workflow will install dependencies and run tests for the Node project
+
+name: Node.js CI
+
+on:
+  push:
+    branches:
+      - main
+      - feature/*
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        # Assignment says Node.js 14 is known to work
+        node-version: [14.x]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      # This will only run if you later add a "build" script to package.json
+      - name: Build (if present)
+        run: npm run build --if-present
+
+      - name: Run tests
+        run: npm test
