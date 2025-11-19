@@ -1,4 +1,3 @@
-// tests/keys.self.test.js
 import keys from '../src/keys.js';
 
 describe('keys (self-designed tests)', () => {
