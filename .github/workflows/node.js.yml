@@ -32,8 +32,8 @@ jobs:
       - name: Build (if present)
         run: npm run build --if-present
 
-      - name: Run tests and generate coverage
-        run: npm test -- --coverage || true
+      - name: Run tests
+        run: npm test
 
       - name: Send coverage to Coveralls
         if: always()
@@ -41,10 +41,3 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           path-to-lcov: ./coverage/lcov.info
-
-      - name: Fail CI if tests failed
-        run: |
-          if ! npm test -- --coverage --bail=false; then
-            echo "Some tests failed. Failing CI."
-            exit 1
-          fi
