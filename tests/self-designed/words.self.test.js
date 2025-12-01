@@ -1,4 +1,4 @@
-import words from '../src/words.js';
+import words from '../../src/words.js';
 
 describe('words (self-designed tests)', () => {
   test('splits simple ASCII sentence into words using default pattern', () => {

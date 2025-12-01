@@ -1,4 +1,4 @@
-import add from '../src/add.js';
+import add from '../../src/add.js';
 
 describe('add (self-designed tests)', () => {
   test('basic addition - correct total for cart', () => {

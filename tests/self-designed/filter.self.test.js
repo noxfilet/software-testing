@@ -1,4 +1,4 @@
-import filter from '../src/filter.js';
+import filter from '../../src/filter.js';
 
 describe('filter (self-designed tests)', () => {
   test('filters truthy values from an array of objects', () => {

@@ -1,13 +1,8 @@
 module.exports = {
   testEnvironment: 'node',
-  testMatch: ['**/tests/**/*.test.js'],
   collectCoverage: true,
-  // collectCoverageFrom: [
-  //   'src/**/*.js',
-  //   '!src/**/.internal/**'
-  // ],
 
-   collectCoverageFrom: [
+  collectCoverageFrom: [
         'src/add.js',
         'src/capitalize.js',  
         'src/countBy.js',  
@@ -19,6 +14,17 @@ module.exports = {
         'src/keys.js',  
         'src/words.js',
     ],
+
+  projects: [
+    {
+      displayName: "manual",
+      testMatch: ['**/tests/self-designed/**/*.test.js']
+    },
+    {
+      displayName: "ai",
+      testMatch: ['**/tests/AI-assisted/**/*.test.js']
+    }
+  ],
 
   // We don't need Babel transforms; this keeps it simple
   transform: {}

@@ -1,5 +1,5 @@
 // tests/keys.ai.test.js
-import keys from '../src/keys.js';
+import keys from '../../src/keys.js';
 
 describe('keys (AI-assisted edge case tests)', () => {
   // ───────────────────────────────────────────────

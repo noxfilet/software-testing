@@ -1,4 +1,4 @@
-import countBy from '../src/countBy.js';
+import countBy from '../../src/countBy.js';
 
 describe('countBy (self-designed tests)', () => {
   test('counts availability (core function)', () => {

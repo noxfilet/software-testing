@@ -5,7 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand --coverage"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand --coverage",
+    "test:ai": "node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand --coverage --selectProjects ai",
+    "test:manual": "node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand --coverage --selectProjects manual"
   },
   "repository": {
     "type": "git",

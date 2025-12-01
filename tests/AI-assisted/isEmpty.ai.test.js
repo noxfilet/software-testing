@@ -1,5 +1,5 @@
 // tests/isEmpty.ai.test.js
-import isEmpty from '../src/isEmpty.js';
+import isEmpty from '../../src/isEmpty.js';
 
 describe('isEmpty (AI-assisted edge case tests)', () => {
   // ───────────────────────────────────────────────

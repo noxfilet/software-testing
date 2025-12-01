@@ -1,4 +1,4 @@
-import drop from '../src/drop.js';
+import drop from '../../src/drop.js';
 
 describe('drop (self-designed tests)', () => {
   test('default behaviour: drops one item when n is not given', () => {

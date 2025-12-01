@@ -1,4 +1,4 @@
-import get from '../src/get.js';
+import get from '../../src/get.js';
 
 describe('get (self-designed tests)', () => {
   test('basic nested lookup - product attributes', () => {

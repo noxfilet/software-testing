@@ -1,4 +1,4 @@
-import isEmpty from '../src/isEmpty.js';
+import isEmpty from '../../src/isEmpty.js';
 
 describe('isEmpty (self-designed tests)', () => {
   test('returns true for null and undefined', () => {
