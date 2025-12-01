@@ -1,6 +1,6 @@
 # Software-testing
 
-[![Coverage Status](https://coveralls.io/repos/github/noxfilet/software-testing/badge.svg?branch=main)](https://coveralls.io/github/noxfilet/software-testing?branch=main)
+[![Coverage Status](https://coveralls.io/repos/github/noxfilet/software-testing/badge.svg?branch=main&kill_cache=1)](https://coveralls.io/github/noxfilet/software-testing?branch=main)
 
 E-commerce utility library testing project for COMP.SE.200.
 
