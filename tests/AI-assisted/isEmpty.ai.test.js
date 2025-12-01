@@ -190,4 +190,20 @@ describe('isEmpty (AI-assisted edge case tests)', () => {
     s.delete(2);
     expect(isEmpty(s)).toBe(true);
   });
+  
+  // ───────────────────────────────────────────────
+  // Prototype
+  // ───────────────────────────────────────────────
+  test('returns true for empty prototype object', () => {
+    function Foo() {}
+    const proto = Foo.prototype; // empty prototype
+    expect(isEmpty(proto)).toBe(true);
+  });
+
+  test('returns false for prototype object with own properties', () => {
+    function Foo() {}
+    Foo.prototype.x = 42; // add property to prototype
+    expect(isEmpty(Foo.prototype)).toBe(false)
+  });
+
 });
