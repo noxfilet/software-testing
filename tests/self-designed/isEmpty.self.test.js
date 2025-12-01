@@ -1,9 +1,10 @@
 import isEmpty from '../../src/isEmpty.js';
 
 describe('isEmpty (self-designed tests)', () => {
-  test('returns true for null and undefined', () => {
-    expect(isEmpty(null)).toBe(true);
-    expect(isEmpty(undefined)).toBe(true);
+  test('returns false for null and undefined or non-object non-collection values', () => {
+    expect(isEmpty(null)).toBe(false);
+    expect(isEmpty(undefined)).toBe(false);
+    expect(isEmpty(50)).toBe(false);
   });
 
   test('returns true for empty arrays', () => {
