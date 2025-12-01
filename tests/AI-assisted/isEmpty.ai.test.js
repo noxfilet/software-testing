@@ -25,14 +25,14 @@ describe('isEmpty (AI-assisted edge case tests)', () => {
   // Numbers, booleans, NaN
   // ───────────────────────────────────────────────
   test('returns false for primitive numbers (not collections)', () => {
-    expect(isEmpty(0)).toBe(true);
-    expect(isEmpty(42)).toBe(true);
-    expect(isEmpty(NaN)).toBe(true);
+    expect(isEmpty(0)).toBe(false);
+    expect(isEmpty(42)).toBe(false);
+    expect(isEmpty(NaN)).toBe(false);
   });
 
   test('returns false for booleans', () => {
-    expect(isEmpty(true)).toBe(true);
-    expect(isEmpty(false)).toBe(true);
+    expect(isEmpty(true)).toBe(false);
+    expect(isEmpty(false)).toBe(false);
   });
 
   // ───────────────────────────────────────────────
