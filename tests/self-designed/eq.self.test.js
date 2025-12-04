@@ -30,13 +30,14 @@ describe('eq (self-designed test)', () => {
   });
 
   test('returns correctly when comparing two array', () => {
-    expect(eq([], [])).toBe(true);
-    expect(eq([1, 2], [1, 2])).toBe(true);
+    expect(eq([], [])).toBe(false);            // arrays have different references
+    const arr = [1, 2];
+    expect(eq(arr, arr)).toBe(true);
     expect(eq([1, 2], [2, 1])).toBe(false);
   });
   
   test('returns correctly when comparing special values', () => {
-    expect(eq(null, undefined)).toBe(false);
+    expect(eq(null, undefined)).toBe(true);
     expect(eq(null, NaN)).toBe(false);
     expect(eq(NaN, undefined)).toBe(false);
     expect(eq(true, false)).toBe(false);

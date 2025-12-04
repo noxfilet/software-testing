@@ -52,9 +52,13 @@ describe('words (self-designed tests)', () => {
     expect(words(undefined)).toEqual([]);
   });
 
-  test('use default pattern for null or undefined pattern ', () => {
+  test('use default pattern for undefined pattern', () => {
     const input = 'fred, barney, & pebbles';
-    expect(words(input), null).toEqual([]);
-    expect(words(input), undefined).toEqual([]);
+    expect(words(input, undefined)).toEqual(['fred', 'barney', 'pebbles']);
+  });
+
+  test('find "null" if pattern is given as null', () => {
+    const input = 'fred, barney, & pebbles';
+    expect(words(input, null)).toEqual([]);   // creates RegExp("null")
   });
 });
