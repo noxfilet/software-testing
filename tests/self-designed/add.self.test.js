@@ -17,6 +17,10 @@ describe('add (self-designed tests)', () => {
     expect(add(28, -5)).toBe(23);
   });
 
+  test('works with large number', () => {
+    expect(add(1000, 5200)).toBe(6200);
+  });
+
   test('works with floating point values - sales tax precision', () => {
     // 0.1 + 0.2 is not exactly 0.3 in JS, so use toBeCloseTo
     expect(add(0.1, 0.2)).toBeCloseTo(0.3, 10);
@@ -27,4 +31,10 @@ describe('add (self-designed tests)', () => {
     expect(add(undefined, 5)).toBe(5);
     expect(add(5, undefined)).toBe(5);
   });
+
+  test('works with NaN/null input', () => {
+    expect(add(NaN, 2)).toBe(NaN);
+    expect(add(null, 2)).toBe(2); // null  -> 0
+  });
+
 });

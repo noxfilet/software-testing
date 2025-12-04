@@ -54,13 +54,23 @@ describe('get (self-designed tests)', () => {
   test('returns default value when path does not exist', () => {
     const data = { product: {} };
 
-    const result = get(data, 'product.details.brand', 'Unknown');
-
-    expect(result).toBe('Unknown');
+    expect(get(data, 'product.details.brand', 'Unknown')).toBe('Unknown');
+    expect(get(data, '')).toBe(undefined);
+    expect(get(data, [])).toBe(undefined);
   });
 
   test('returns default value when object is null or undefined', () => {
     expect(get(null, 'a.b.c', 'fallback')).toBe('fallback');
     expect(get(undefined, 'a.b.c', 'fallback')).toBe('fallback');
+    expect(get(undefined, 'a.b.c')).toBe(undefined);
+  });
+
+  test('returns default value when object is null or undefined', () => {
+    expect(get(null, 'a.b.c', 'fallback')).toBe('fallback');
+    expect(get(undefined, 'a.b.c', 'fallback')).toBe('fallback');
+  });  
+  
+  test('returns undefined when object is undefined', () => {
+    expect(get(undefined, 'a.b.c')).toBe(undefined);
   });
 });

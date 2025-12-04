@@ -19,6 +19,8 @@ describe('capitalize (self-designed tests)', () => {
     expect(capitalize(123)).toBe('123');      // toString(123) → "123"
     expect(capitalize(null)).toBe('');        // toString(null) → ""
     expect(capitalize(undefined)).toBe('');   // toString(undefined) → ""
+    expect(capitalize(true)).toBe("True");    // toString(true) → "true"
+    expect(capitalize(false)).toBe("False");  // toString(false) → "false"
   });
 
   test('handles strings starting with non-alphabetic characters', () => {

@@ -31,8 +31,9 @@ describe('keys (self-designed tests)', () => {
     expect(keys(123)).toEqual([]);
   });
 
-  test('returns empty array for null or undefined', () => {
+  test('returns empty array for null or undefined or boolean', () => {
     expect(keys(null)).toEqual([]);
     expect(keys(undefined)).toEqual([]);
+    expect(keys(true)).toEqual([]);
   });
 });

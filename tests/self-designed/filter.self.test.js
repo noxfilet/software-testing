@@ -36,4 +36,9 @@ describe('filter (self-designed tests)', () => {
     expect(result1).toEqual([]);
     expect(result2).toEqual([]);
   });
+
+  test('handles null or undefined predicate', () => {
+    expect(filter([1, 2, 3], null)).toEqual([]);
+    expect(filter([1, 2, 3], undefined)).toEqual([]);
+  });
 });

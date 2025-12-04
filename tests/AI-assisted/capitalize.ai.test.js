@@ -22,8 +22,8 @@ describe("capitalize()", () => {
     expect(capitalize(123)).toBe("123");
     expect(capitalize(true)).toBe("True");
     expect(capitalize(false)).toBe("False");
-    expect(capitalize(null)).toBe("Null");
-    expect(capitalize(undefined)).toBe("Undefined");
+    expect(capitalize(null)).toBe("");        // toString(null) → ""
+    expect(capitalize(undefined)).toBe("");   // toString(undefined) → ""
   });
 
   test("should handle strings that already begin uppercase", () => {

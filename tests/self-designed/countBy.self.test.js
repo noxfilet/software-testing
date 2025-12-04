@@ -16,9 +16,8 @@ describe('countBy (self-designed tests)', () => {
   test('category mixed distribution', () => {
     const items = ['shoes', 'shoes', 'bags'];
 
-    const result = countBy(items, s => s);
-
-    expect(result).toEqual({ shoes: 2, bags: 1 });
+    expect(countBy(items, s => s)).toEqual({ shoes: 2, bags: 1 });
+    expect(countBy(items, s => s.length)).toEqual({5: 2, 4: 1});
   });
 
   test('price tiering buckets values into low/high', () => {
@@ -42,4 +41,15 @@ describe('countBy (self-designed tests)', () => {
 
     expect(result).toEqual({});
   });
+
+  test('handles null and undefined as string', () => {
+    const result = countBy([null, undefined, null], String);
+    expect(result).toEqual({'null' : 2, 'undefined': 1});
+  });
+  
+  test('handles mixed types with String iteratee', () => {
+    const result = countBy([1, '1', true], String);
+    expect(result).toEqual({ '1': 2, 'true': 1 });
+  });
+  
 });

@@ -46,4 +46,15 @@ describe('words (self-designed tests)', () => {
 
     expect(result).toEqual([]);
   });
+
+  test('returns empty array for null/undefined input', () => {
+    expect(words(null)).toEqual([]);
+    expect(words(undefined)).toEqual([]);
+  });
+
+  test('use default pattern for null or undefined pattern ', () => {
+    const input = 'fred, barney, & pebbles';
+    expect(words(input), null).toEqual([]);
+    expect(words(input), undefined).toEqual([]);
+  });
 });

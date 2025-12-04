@@ -12,8 +12,9 @@ describe('eq (self-designed test)', () => {
     expect(eq(obj1, obj2)).toBe(false);
   });
 
-  test('returns true for primitive string equality', () => {
+  test('returns correctly for primitive string equality', () => {
     expect(eq('a', 'a')).toBe(true);
+    expect(eq('a', 'b')).toBe(false);
   });
 
   test('returns false for string primitive vs String object wrapper', () => {
@@ -27,4 +28,19 @@ describe('eq (self-designed test)', () => {
   test('returns false for clearly different primitives', () => {
     expect(eq(1, 2)).toBe(false);
   });
+
+  test('returns correctly when comparing two array', () => {
+    expect(eq([], [])).toBe(true);
+    expect(eq([1, 2], [1, 2])).toBe(true);
+    expect(eq([1, 2], [2, 1])).toBe(false);
+  });
+  
+  test('returns correctly when comparing special values', () => {
+    expect(eq(null, undefined)).toBe(false);
+    expect(eq(null, NaN)).toBe(false);
+    expect(eq(NaN, undefined)).toBe(false);
+    expect(eq(true, false)).toBe(false);
+    expect(eq(true, true)).toBe(true);
+  });
+
 });
