@@ -33,8 +33,8 @@ describe('add (self-designed tests)', () => {
   });
 
   test('works with NaN/null input', () => {
-    expect(add(NaN, 2)).toBe(NaN);
-    expect(add(null, 2)).toBe(2); // null  -> 0
+    expect(add(NaN, 2)).toBe(NaN);  // return NaN if there is input as NaN
+    expect(add(null, 2)).toBe(2);   // null  -> 0
   });
 
 });

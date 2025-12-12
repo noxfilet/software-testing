@@ -1,6 +1,7 @@
 import get from '../../src/get.js';
 
 describe('get (self-designed tests)', () => {
+  // Test: traverse nested objects and return the leaf value
   test('basic nested lookup - product attributes', () => {
     const data = {
       product: {
@@ -15,6 +16,7 @@ describe('get (self-designed tests)', () => {
     expect(result).toBe('Acme');
   });
 
+  // Test: Array index access via bracket notation in path + default fallback
   test('array index access - first cart line quantity (with default)', () => {
     const data = {
       cart: {
@@ -31,6 +33,7 @@ describe('get (self-designed tests)', () => {
     expect(result).toBe(2);
   });
 
+  // Test: Path provided as an array of segments
   test('path as array segments', () => {
     const data = { a: [{ b: { c: 3 } }] };
 
@@ -39,6 +42,7 @@ describe('get (self-designed tests)', () => {
     expect(result).toBe(3);
   });
 
+  // Test: when the resolved property exists but is explicitly undefined, return the provided default value.
   test('returns default value when resolved value is undefined', () => {
     const data = {
       flags: {
@@ -51,6 +55,7 @@ describe('get (self-designed tests)', () => {
     expect(result).toBe(false);
   });
 
+  // Test: Missing path behavior
   test('returns default value when path does not exist', () => {
     const data = { product: {} };
 
@@ -59,18 +64,10 @@ describe('get (self-designed tests)', () => {
     expect(get(data, [])).toBe(undefined);
   });
 
+  // Test: Handles null/undefined root object still has return
   test('returns default value when object is null or undefined', () => {
     expect(get(null, 'a.b.c', 'fallback')).toBe('fallback');
     expect(get(undefined, 'a.b.c', 'fallback')).toBe('fallback');
-    expect(get(undefined, 'a.b.c')).toBe(undefined);
-  });
-
-  test('returns default value when object is null or undefined', () => {
-    expect(get(null, 'a.b.c', 'fallback')).toBe('fallback');
-    expect(get(undefined, 'a.b.c', 'fallback')).toBe('fallback');
-  });  
-  
-  test('returns undefined when object is undefined', () => {
     expect(get(undefined, 'a.b.c')).toBe(undefined);
   });
 });

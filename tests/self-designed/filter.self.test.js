@@ -1,6 +1,7 @@
 import filter from '../../src/filter.js';
 
 describe('filter (self-designed tests)', () => {
+  // Test: Evaluates the predicate per element and returns matching items
   test('filters truthy values from an array of objects', () => {
     const users = [
       { user: 'barney', active: true },
@@ -12,6 +13,7 @@ describe('filter (self-designed tests)', () => {
     expect(result).toEqual([{ user: 'barney', active: true }]);
   });
 
+  // Test: Confirms basic comparison-based filtering on primitives
   test('filters numbers greater than 10', () => {
     const nums = [5, 12, 8, 21];
 
@@ -20,6 +22,7 @@ describe('filter (self-designed tests)', () => {
     expect(result).toEqual([12, 21]);
   });
 
+  // Test: Shows empty array when predicate never returns true
   test('returns empty array when no elements match predicate', () => {
     const nums = [1, 2, 3];
 
@@ -28,7 +31,7 @@ describe('filter (self-designed tests)', () => {
     expect(result).toEqual([]);
   });
 
-
+  // Test: Handles null or undefined collection gracefully.
   test('handles null or undefined array input', () => {
     const result1 = filter(null, () => true);
     const result2 = filter(undefined, () => true);
@@ -37,6 +40,7 @@ describe('filter (self-designed tests)', () => {
     expect(result2).toEqual([]);
   });
 
+  // Test: Handles null or undefined predicate and returns empty array
   test('handles null or undefined predicate', () => {
     expect(filter([1, 2, 3], null)).toEqual([]);
     expect(filter([1, 2, 3], undefined)).toEqual([]);
